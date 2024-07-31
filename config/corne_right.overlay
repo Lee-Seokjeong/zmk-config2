@@ -20,3 +20,24 @@
 		, <&pro_micro 21 GPIO_ACTIVE_HIGH>
 		;
 };
+
+#include <dt-bindings/zmk/trackball_pim447.h>
+
+&pro_micro_i2c {
+    status = "okay";
+
+    trackball_pim447@0a {
+        compatible = "pimoroni,trackball_pim447";
+        reg = <0xa>;
+        label = "TRACKBALL_PIM447";
+        move-factor = <2>;
+        invert-move-x;
+        invert-move-y;
+        button = <1>;
+        swap-axes;
+        scroll-divisor = <1>;
+        invert-scroll-x;
+        invert-scroll-y;
+        mode = <PIM447_SCROLL>;
+    };
+};
