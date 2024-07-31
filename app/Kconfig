@@ -329,6 +329,9 @@ endmenu
 menu "Mouse Options"
 
 rsource "src/mouse/Kconfig"
+config ZMK_TRACKBALL_PIM447
+    bool "Enable PIM447 Trackball Support"
+    default n
 
 #Mouse Options
 endmenu
