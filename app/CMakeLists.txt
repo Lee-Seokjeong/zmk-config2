@@ -31,6 +31,12 @@ target_sources(app PRIVATE src/mouse/key_listener.c)
 target_sources(app PRIVATE src/mouse/main.c)
 target_sources(app PRIVATE src/mouse/tick_listener.c)
 target_include_directories(app PRIVATE
+
+include_directories(
+    ...
+    ${CMAKE_CURRENT_SOURCE_DIR}/app/include
+)
+
     include
     app/include
     app/include/dt-bindings
