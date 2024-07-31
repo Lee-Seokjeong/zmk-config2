@@ -20,10 +20,3 @@
 		, <&pro_micro 21 GPIO_ACTIVE_HIGH>
 		;
 };
-
-
-
-&pro_micro_i2c {
-    status = "okay";
-    
-};
