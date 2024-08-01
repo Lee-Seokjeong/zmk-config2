@@ -206,7 +206,8 @@ config ZMK_WIDGET_WPM_STATUS
 
 # 구식 심볼 비활성화
 config NRF_STORE_REBOOT_TYPE_GPREGRET
-	default n  # 구식 심볼 비활성화
+    bool "Enable GPREGRET"
+    default n  # 비활성화
 
 if !ZMK_SPLIT_BLE_ROLE_CENTRAL
 
