@@ -3,7 +3,11 @@
 
 description: Trackball PIM447
 
-compatible: "pimoroni,trackball_pim447"
+# compatible: "pimoroni,trackball_pim447"
+/ {
+    compatible = "pimoroni,trackball_pim447";
+    ...
+};
 
 # properties:
 #   label:
