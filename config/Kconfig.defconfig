@@ -6,11 +6,17 @@ config ZMK_KEYBOARD_NAME
 config ZMK_SPLIT_BLE_ROLE_CENTRAL
 	default y
 
+config ZMK_USB
+	default y
+
 endif
 
 if SHIELD_CORNE_LEFT || SHIELD_CORNE_RIGHT
 
 config ZMK_SPLIT
+	default y
+
+config ZMK_SPLIT_BLE
 	default y
  
 if ZMK_DISPLAY
@@ -49,4 +55,15 @@ endchoice
 
 endif # LVGL
 
+# 추가된 설정
+if ZMK_SPLIT
+config ZMK_WIDGET_LAYER_STATUS
+	default y
+
+config ZMK_WIDGET_OUTPUT_STATUS
+	default y
+
+config ZMK_WIDGET_WPM_STATUS
+	default y
 endif
+
