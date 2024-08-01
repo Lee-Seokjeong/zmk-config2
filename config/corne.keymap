@@ -6,6 +6,7 @@
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/rgb.h>
 
@@ -50,7 +51,7 @@
 &kp GRAVE     &kp F1   &kp F2   &kp F3            &kp F4             &kp F5           &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp SLASH  &kp ASTERISK  &kp MINUS
 &kp CAPSLOCK  &kp F6   &kp F7   &kp F8            &kp F9             &kp F10          &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp RIGHT  &kp EQUAL     &kp PLUS
 &kp LSHFT     &kp F11  &kp F12  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp BACKSLASH    &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans     &kp DOT       &kp ENTER
-                                &kp LGUI          &trans             &kp SPACE        &kp NUMBER_0  &trans        &kp RALT
+                                &kp LGUI          &tog 2             &kp SPACE        &kp NUMBER_0  &tog 1        &kp RALT
             >;
         };
 
@@ -62,10 +63,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp C_VOL_UP     &kp K_MUTE       &kp UP_ARROW     &kp K_PP         &kp C_REWIND        &kp PG_UP          &kp CARET   &kp AMPS      &kp ASTRK     &kp LPAR      &kp RPAR      &kp BSPC
-&kp C_VOL_DN     &kp LEFT         &kp DOWN         &kp RIGHT        &kp C_FAST_FORWARD  &kp PG_DN          &kp MINUS   &kp EQUAL     &kp LBKT      &kp RBKT      &kp BSLH      &kp GRAVE
-&rgb_ug RGB_TOG  &rgb_ug RGB_EFF  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &rgb_ug RGB_SPI     &rgb_ug RGB_SPD    &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
-                                                   &kp LGUI         &trans              &kp SPACE          &kp RET     &trans        &kp RALT
+&kp C_VOL_UP     &kp K_MUTE       &kp UP_ARROW     &kp K_PP           &kp C_REWIND        &kp PG_UP           &kp PRINTSCREEN    &kp SCROLLLOCK  &kp PAUSE_BREAK  &kp DELETE    &kp END       &kp PG_DN
+&kp C_VOL_DN     &kp LEFT         &kp DOWN         &kp RIGHT          &kp C_FAST_FORWARD  &kp PG_DN           &kp INSERT         &kp HOME        &kp PG_UP        &kp RBKT      &kp BSLH      &kp GRAVE
+&rgb_ug RGB_TOG  &rgb_ug RGB_EFF  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD    &rgb_ug RGB_SPI     &rgb_ug RGB_SPD     &bt BT_CLR         &bt BT_SEL 0    &bt BT_SEL 1     &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
+                                                   &ext_power EP_OFF  &tog 2              &ext_power EP_ON    &ext_power EP_TOG  &tog 1          &kp RALT
             >;
         };
     };
