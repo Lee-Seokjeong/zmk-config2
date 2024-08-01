@@ -10,6 +10,12 @@ CONFIG_ARM_MPU=y
 # enable GPIO
 CONFIG_GPIO=y
 
+# USB Configuration
+CONFIG_ZMK_USB=y           # Enable USB functionality
+CONFIG_ZMK_SPLIT=y         # Enable split keyboard functionality
+CONFIG_ZMK_SPLIT_BLE=y     # Enable Bluetooth split functionality
+CONFIG_ZMK_SPLIT_ROLE_CENTRAL=y  # Set role to central for BLE
+
 CONFIG_USE_DT_CODE_PARTITION=y
 
 CONFIG_MPU_ALLOW_FLASH_WRITE=y
