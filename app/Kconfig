@@ -79,6 +79,7 @@ menu "Output Types"
 
 config ZMK_USB
 	bool "USB"
+        default y  # USB 활성화
 	select USB
 	select USB_DEVICE_STACK
 	select USB_DEVICE_HID
@@ -93,7 +94,8 @@ endif
 
 menuconfig ZMK_BLE
 	bool "BLE (HID over GATT)"
-	select BT
+	default y  # BLE 활성화
+        select BT
 	select BT_SMP
 	select BT_SMP_SC_PAIR_ONLY
 	select BT_SMP_APP_PAIRING_ACCEPT
@@ -154,8 +156,11 @@ endmenu
 
 menu "Split Support"
 
+# config ZMK_SPLIT
+# 	bool "Split keyboard support"
 config ZMK_SPLIT
 	bool "Split keyboard support"
+	default y  # 필요 시 활성화
 
 if ZMK_SPLIT
 
@@ -195,7 +200,7 @@ config ZMK_SPLIT_BLE_PERIPHERAL_POSITION_QUEUE_SIZE
 	default 10
 
 config ZMK_USB
-	default n
+	default y
 
 config BT_MAX_PAIRED
 	default 1
