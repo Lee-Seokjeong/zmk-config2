@@ -4,11 +4,14 @@ name: Corne
 type: shield
 url: https://github.com/foostan/crkbd/
 requires: [pro_micro]
+  - pimoroni trackball_pim447
 exposes: [i2c_oled]
 features:
   - keys
   - display
   - underglow
+  - mouse
 siblings:
   - corne_left
   - corne_right
+  - pimtrackball
