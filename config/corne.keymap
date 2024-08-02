@@ -72,19 +72,3 @@
         };
     };
 };
-
-/ {
-    keymap {
-        compatible = "zmk,keymap";
-                // ROW A FROM SCHEMATIC FILE
-                // ROW A FROM SCHEMATIC FILE
-                // ROW A FROM SCHEMATIC FILE
-        default_layer {
-            bindings = <
-                &mouse LCLK
-                &mouse RCLK
-                &mouse MCLK
-           >;
-        };
-    };
-};
