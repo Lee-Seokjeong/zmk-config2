@@ -3,7 +3,8 @@ id: corne
 name: Corne
 type: shield
 url: https://github.com/foostan/crkbd/
-requires: [pro_micro]
+requires: 
+  - pro_micro
   - pimoroni trackball_pim447
 exposes: [i2c_oled]
 features:
