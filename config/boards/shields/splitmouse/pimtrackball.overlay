@@ -3,6 +3,11 @@
 #include "splitmouse.dtsi" // Notice that the main dtsi files are included in the overlay.
 #include <dt-bindings/zmk/trackball_pim447.h> // for PIM447_MOVE and PIM447_SCROLL constants
 
+/ {
+    include "dt-bindings/zmk/trackball_pim447.h"
+};
+
+
 &default_kscan {
     row-gpios
 
