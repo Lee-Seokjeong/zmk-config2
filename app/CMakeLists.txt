@@ -1,36 +1,6 @@
-cmake_minimum_required(VERSION 3.13.1)
 
-set(CONFIG_APPLICATION_DEFINED_SYSCALL true)
-list(APPEND BOARD_ROOT ${CMAKE_SOURCE_DIR})
-list(APPEND DTS_ROOT ${CMAKE_SOURCE_DIR})
+include_directories(dt-bindings/zmk)
 
-# Add our custom Zephyr module for drivers w/ syscalls, etc.
-list(APPEND DTS_ROOT ${CMAKE_SOURCE_DIR}/drivers/zephyr)
-
-list(APPEND ZEPHYR_EXTRA_MODULES
-  ${CMAKE_CURRENT_SOURCE_DIR}/drivers
-)
-
-include(cmake/zmk_config.cmake)
-
-# Find Zephyr. This also loads Zephyr's build system.
-find_package(Zephyr REQUIRED HINTS ../zephyr)
-project(zmk)
-
-zephyr_linker_sources(RODATA include/linker/zmk-events.ld)
-
-# Add your source file to the "app" target. This must come after
-# find_package(Zephyr) which defines the target.
-target_include_directories(app PRIVATE include)
-target_sources_ifdef(CONFIG_ZMK_SLEEP app PRIVATE src/power.c)
-target_sources(app PRIVATE src/activity.c)
-target_sources(app PRIVATE src/kscan.c)
-target_sources(app PRIVATE src/matrix_transform.c)
-target_sources(app PRIVATE src/hid.c)
-target_sources(app PRIVATE src/mouse/key_listener.c)
-target_sources(app PRIVATE src/mouse/main.c)
-target_sources(app PRIVATE src/mouse/tick_listener.c)
-target_sources_ifdef(CONFIG_ZMK_TRACKBALL_PIM447 app PRIVATE src/mouse/trackball_pim447.c)
 target_sources(app PRIVATE src/sensors.c)
 target_sources_ifdef(CONFIG_ZMK_WPM app PRIVATE src/wpm.c)
 target_sources(app PRIVATE src/event_manager.c)
