@@ -149,3 +149,18 @@ list(APPEND ZMK_DTC_FILES ${KEYMAP_FILE})
 if (ZMK_DTC_FILES)
 	string(REPLACE ";" " " DTC_OVERLAY_FILE "${ZMK_DTC_FILES}")
 endif()
+
+# 예시: 트랙볼 관련 파일 처리
+if (DEFINED SHIELD)
+    # 트랙볼 관련 파일 경로 설정 (예시)
+    set(TRACKBALL_INCLUDE_DIR "${ZMK_CONFIG}/dt-bindings/zmk")
+
+    # 트랙볼 관련 파일 포함 디렉토리 추가
+    target_include_directories(app PRIVATE ${TRACKBALL_INCLUDE_DIR})
+
+    # 트랙볼 관련 소스 파일 추가
+    target_sources(app PRIVATE ${TRACKBALL_INCLUDE_DIR}/trackball_pim447.h)
+
+    # 다른 필요한 설정 추가 가능
+    # target_sources_ifdef(CONFIG_ZMK_TRACKBALL app PRIVATE ${TRACKBALL_INCLUDE_DIR}/trackball.c)
+endif()
