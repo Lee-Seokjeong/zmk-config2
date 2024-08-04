@@ -26,7 +26,8 @@
     status = "okay";
 
     trackball_pim447@a {
-        compatible = "pimoroni,trackball_pim447";
+#         compatible = "pimoroni,trackball_pim447";
+        compatible = "zmk,trackball_pim447";
         reg = <0xa>;
         label = "TRACKBALL_PIM447";
         move-factor = <2>;
