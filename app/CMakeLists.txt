@@ -59,6 +59,24 @@ target_sources(app PRIVATE src/endpoints.c)
 target_sources(app PRIVATE src/hid_listener.c)
 target_sources(app PRIVATE src/main.c)
 
+
+# vendor-prefixes.txt 등록
+zephyr_include_directories(
+    ${ZEPHYR_BASE}/dts
+    ${CMAKE_CURRENT_SOURCE_DIR}/config
+    ${CMAKE_CURRENT_SOURCE_DIR}/config/include
+)
+
+# Device Tree 파일 추가
+set(DTS_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/app/boards/arm/nice_nano)
+zephyr_compile_definitions(
+  -DZMK_CONFIG=${CMAKE_CURRENT_SOURCE_DIR}/config
+  -DSHIELD=corne_right
+  -DZMK_EXTRA_MODULES=${CMAKE_CURRENT_SOURCE_DIR}/zmk-config2/zmk-config2
+)
+zephyr_compile_options(-g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16)
+
+
 add_subdirectory(src/display/)
 
 zephyr_cc_option(-Wfatal-errors)
