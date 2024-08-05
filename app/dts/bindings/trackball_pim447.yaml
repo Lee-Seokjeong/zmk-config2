@@ -1,0 +1,28 @@
+# zmk/app/dts/bindings/pimoroni,trackball_pim447.yaml
+
+pimoroni,trackball_pim447:
+  type: "object"
+  properties:
+    compatible:
+      const: "pimoroni,trackball_pim447"
+    reg:
+      description: "I2C address"
+      type: "array"
+      items:
+        - description: "I2C address"
+          type: "integer"
+    move-factor:
+      description: "Pointer movement factor"
+      type: "integer"
+    button:
+      description: "Button configuration"
+      type: "integer"
+    scroll-divisor:
+      description: "Scroll wheel divisor"
+      type: "integer"
+    mode:
+      description: "Trackball mode"
+      type: "integer"
+  required:
+    - compatible
+    - reg
