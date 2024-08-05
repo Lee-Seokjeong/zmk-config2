@@ -19,14 +19,22 @@
 		compatible = "zmk,battery-nrf-vddh";
 		label = "BATTERY";
 	};
-       &i2c {
-        trackball_pim447@a {
-            compatible = "pimoroni,trackball_pim447";
-            reg = <address>;
-            interrupt-parent = <&gpioX>;
-            interrupts = <Y IRQ_TYPE_LEVEL_HIGH>;
+      soc {
+        i2c@40003000 {
+            trackball_pim447@a {
+                compatible = "pimoroni,trackball_pim447";
+                reg = <0xa>; // 장치의 주소에 따라 수정 필요
+                label = "TRACKBALL_PIM447";
+                move-factor = <2>;
+                invert-move-x;
+                invert-move-y;
+                button = <1>; // 필요한 버튼 설정
+                swap-axes;
+                scroll-divisor = <1>;
+                invert-scroll-x;
+                invert-scroll-y;
+                mode = <2>; // 모드 설정 (옵션)
+            };
         };
     };
-
-
 };
