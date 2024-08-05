@@ -27,9 +27,9 @@
 
     trackball_pim447@a {
         compatible = "pimoroni,trackball_pim447";
-        reg = <0xa>;
+        reg = <0x0a>;
         label = "TRACKBALL_PIM447";
-        move-factor = <2>;
+        move-factor = <1>;
         invert-move-x;
         invert-move-y;
         button = <1>;
@@ -37,6 +37,6 @@
         scroll-divisor = <1>;
         invert-scroll-x;
         invert-scroll-y;
-        mode = <2>; // <PIM447_SCROLL>;
+        mode = <1>; // <PIM447_SCROLL>;
     };
 };
