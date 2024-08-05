@@ -7,6 +7,8 @@ set_property(GLOBAL APPEND PROPERTY extra_post_build_commands
   ${PROJECT_BINARY_DIR}/${CONFIG_KERNEL_BIN_NAME}.bin
 )
 
+# Include vendor-prefixes.txt file
+include(${CMAKE_CURRENT_LIST_DIR}/vendor-prefixes.txt)
 
 cmake_minimum_required(VERSION 3.13.1)
 project(my_project_name VERSION 1.0)
