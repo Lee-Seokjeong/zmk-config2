@@ -1,1 +1,2 @@
-pimoroni Pimoroni Ltd. https://www.pimoroni.com/
+zmk	ZMK Project
+pimoroni pimoroni,trackball_pim447
