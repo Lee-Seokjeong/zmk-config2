@@ -5,6 +5,7 @@
  */
 
 #include "corne.dtsi"
+#include <dt-bindings/zmk/trackball_pim447.h> // for PIM447_MOVE and PIM447_SCROLL constants.
 
 &default_transform {
 	col-offset = <6>;
