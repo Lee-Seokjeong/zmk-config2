@@ -1,2 +1,1 @@
-zmk	ZMK Project
-pimoroni	Pimoroni Ltd.
+pimoroni Pimoroni Ltd. https://www.pimoroni.com/
