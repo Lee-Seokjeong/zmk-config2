@@ -1,0 +1,36 @@
+&pinctrl {
+    // Other pinctrl definitions for other hardware
+    pwm0_default: pwm0_default {
+        group1 {
+            pinmux = <NRF_PSEL(PWM_OUT0, 1, 13)>;
+        };
+    };
+
+    pwm0_sleep: pwm0_sleep {
+        group1 {
+            pinmux = <NRF_PSEL(PWM_OUT0, 1, 13)>;
+            low_power = <1>;
+        };
+    };
+};
+
+&pwm0 {
+    status = "okay";
+    pinctrl-names = "default", "sleep";
+    pinctrl-0 = <&pwm0_default>;
+    pinctrl-1 = <&pwm0_sleep>;
+};
+
+/ {
+    backlight: pwmleds {
+        compatible = "pwm-leds";
+        pwm_led_0 {
+            pwms = <&pwm0 0 0>; // Ensure correct PWM channel and period (in microseconds)
+            default-state = "on"; // Optional: Set the default state of the backlight
+        };
+    };
+
+    chosen {
+        zmk,backlight = <&backlight>;
+    };
+};
