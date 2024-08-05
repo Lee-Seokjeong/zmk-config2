@@ -90,6 +90,7 @@
 		scroll-divisor = <1>;   // Increase wheel velocity (default: 2)
 		//invert-scroll-x;        // Invert wheel X axis (left is right, and vice versa)
 		//invert-scroll-y;        // Invert wheel Y axis (up is down, and vice versa)
-		mode = <2>; // Act as mouse wheels at startup (default: PIM447_MOVE for a pointer)
+		mode = <1>; // Act as mouse wheels at startup (default: PIM447_MOVE for a pointer)
 	};
+    };
 };
