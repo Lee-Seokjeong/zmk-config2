@@ -14,6 +14,7 @@
                 &mouse LCLK
                 &mouse RCLK
                 &mouse MCLK
+                &pim447_toggle
            >;
         };
     };
