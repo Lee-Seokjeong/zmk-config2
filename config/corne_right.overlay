@@ -27,7 +27,7 @@
 
     trackball_pim447@a {
         compatible = "pimoroni,trackball_pim447";
-        reg = <0xa>;
+        reg = <0x0a>;
         label = "TRACKBALL_PIM447";
         move-factor = <1>;
         invert-move-x;
