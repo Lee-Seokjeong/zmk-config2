@@ -3,44 +3,38 @@
  *
  * SPDX-License-Identifier: MIT
  */
-
 #include "corne.dtsi"
-#include <dt-bindings/zmk/trackball_pim447.h> // for PIM447_MOVE and PIM447_SCROLL constants.
 
 &default_transform {
-    col-offset = <6>;
+	col-offset = <6>;
 };
-
 &kscan0 {
-    col-gpios = <&pro_micro 14 GPIO_ACTIVE_HIGH>,
-                <&pro_micro 15 GPIO_ACTIVE_HIGH>,
-                <&pro_micro 18 GPIO_ACTIVE_HIGH>,
-                <&pro_micro 19 GPIO_ACTIVE_HIGH>,
-                <&pro_micro 20 GPIO_ACTIVE_HIGH>,
-                <&pro_micro 21 GPIO_ACTIVE_HIGH>;
+	col-gpios
+		= <&pro_micro 14 GPIO_ACTIVE_HIGH>
+		, <&pro_micro 15 GPIO_ACTIVE_HIGH>
+		, <&pro_micro 18 GPIO_ACTIVE_HIGH>
+		, <&pro_micro 19 GPIO_ACTIVE_HIGH>
+		, <&pro_micro 20 GPIO_ACTIVE_HIGH>
+		, <&pro_micro 21 GPIO_ACTIVE_HIGH>
+		;
 };
-
-&default_kscan {
-    row-gpios
-
-        ;
-};
-
 &pro_micro_i2c {
-	status = "okay";
-	trackball_pim447@a {
-		compatible = "pimoroni,trackball_pim447";
-		reg = <0xa>;
-		label = "TRACKBALL_PIM447";
-		
-		move-factor = <1>;      // Increase pointer velocity (default: 1)
-		//invert-move-x;          // Invert pointer X axis (left is right, and vice versa)
-		//invert-move-y;          // Invert pointer Y axis (up is down, and vice versa)
-		button = <1>;           // Send right-click when pressing the ball (default: 0 = left click, 1 = right click, 2 = middle click?)
-		//swap-axes;              // Swap X and Y axes (horizontal is vertical, and vice versa)
-		scroll-divisor = <1>;   // Increase wheel velocity (default: 2)
-		//invert-scroll-x;        // Invert wheel X axis (left is right, and vice versa)
-		//invert-scroll-y;        // Invert wheel Y axis (up is down, and vice versa)
-		mode = <PIM447_SCROLL>; // Act as mouse wheels at startup (default: PIM447_MOVE for a pointer)
-	};
+    status = "okay";
+
+    trackball_pim447@a {
+        compatible = "pimoroni,trackball_pim447";
+        reg = <0xa>;
+        reg = <0x0a>;
+        label = "TRACKBALL_PIM447";
+        move-factor = <2>;
+        move-factor = <1>;
+        invert-move-x;
+        invert-move-y;
+        button = <1>;
+        swap-axes;
+        scroll-divisor = <1>;
+        invert-scroll-x;
+        invert-scroll-y;
+        mode = <1>; // <PIM447_SCROLL>;
+    };
 };
