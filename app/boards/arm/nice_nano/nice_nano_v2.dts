@@ -19,15 +19,14 @@
 		compatible = "zmk,battery-nrf-vddh";
 		label = "BATTERY";
 	};
-       soc {
-        i2c@40003000 {
-            trackball_pim447@a {
-                compatible = "pimoroni,trackball_pim447";
-                reg = <address>;
-                interrupt-parent = <&gpioX>;
-                interrupts = <Y IRQ_TYPE_LEVEL_HIGH>;
-            };
+       &i2c {
+        trackball_pim447@a {
+            compatible = "pimoroni,trackball_pim447";
+            reg = <address>;
+            interrupt-parent = <&gpioX>;
+            interrupts = <Y IRQ_TYPE_LEVEL_HIGH>;
         };
     };
+
 
 };
