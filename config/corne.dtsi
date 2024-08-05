@@ -80,7 +80,7 @@
         trackball_pim447@a {
 		compatible = "pimoroni,trackball_pim447";
 		reg = <0x0a>;
-		label = "TRACKBALL_PIM447";
+	#      	label = "TRACKBALL_PIM447";
 		
 		move-factor = <1>;      // Increase pointer velocity (default: 1)
 		//invert-move-x;          // Invert pointer X axis (left is right, and vice versa)
@@ -93,4 +93,3 @@
 		mode = <1>; // Act as mouse wheels at startup (default: PIM447_MOVE for a pointer)
 	};
     };
-};
