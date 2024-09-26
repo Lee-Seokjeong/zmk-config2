@@ -1,0 +1,15 @@
+# trackball_pim447.zmk.yml
+file_format: "1"
+id: trackball_pim447
+name: Pimoroni Trackball PIM447
+type: module
+url: https://github.com/pimoroni/trackball-pim447
+requires:
+  - i2c
+  - gpio
+exposes:
+  - trackball
+features:
+  - pointer
+siblings:
+  - trackball_pim448  # 예시: 같은 제조사의 다른 모듈이 있을 경우
