@@ -1,2 +1,2 @@
 zmk	ZMK Project
-pimoroni pimoroni,trackball_pim447
+pimoroni
