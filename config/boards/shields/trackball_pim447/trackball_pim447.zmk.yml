@@ -2,7 +2,7 @@
 file_format: "1"
 id: trackball_pim447
 name: Pimoroni Trackball PIM447
-type: module
+type: shield
 url: https://github.com/pimoroni/trackball-pim447
 requires:
   - i2c
