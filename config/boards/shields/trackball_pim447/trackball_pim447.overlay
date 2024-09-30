@@ -1,20 +1,50 @@
-&pro_micro_i2c {
-    status = "okay";  // I2C 버스 활성화
-    
-    trackball_pim447@a {
-        compatible = "pimoroni,trackball_pim447";  // 드라이버와 일치
-        reg = <0x0a>;  // I2C 주소
-        label = "TRACKBALL_PIM447";  // 트랙볼 레이블
+// pimtrackball.overlay
 
-        // Optional properties for the trackball configuration
-        move-factor = <2>;  // 포인터 속도 증가 (기본값: 1)
-        invert-move-x;  // X 축 반전
-        invert-move-y;  // Y 축 반전
-        button = <1>;  // 볼을 눌렀을 때 오른쪽 클릭 전송
-        swap-axes;  // X 및 Y 축 교환
-        scroll-divisor = <1>;  // 휠 속도 증가 (기본값: 2)
-        invert-scroll-x;  // 휠 X 축 반전
-        invert-scroll-y;  // 휠 Y 축 반전
-        mode = <1>;  // 시작 시 마우스 휠로 작동
+#include <dt-bindings/zmk/trackball_pim447.h> // for PIM447_MOVE and PIM447_SCROLL constants
+
+/ {
+    chosen {
+        zmk,kscan = &default_kscan;
     };
+
+    default_kscan: kscan {
+        compatible = "zmk,kscan-gpio-direct";
+        label = "default_kscan";
+
+        input-gpios
+            = <&pro_micro 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Row A from the schematic file
+            , <&pro_micro 3 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Row B from the schematic file
+            //, <&pro_micro 3 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Row C from the schematic file
+            ;
+    };
+};
+
+&i2c0 {
+	status = "okay";
+	trackball_pim447@a {
+		compatible = "pimoroni,trackball_pim447";
+		reg = <0xa>;
+		label = "TRACKBALL_PIM447";
+		
+		//move-factor = <1>;      // Increase pointer velocity (default: 1); used by cdc-mkb branch 
+		move-factor-x = <100>;	// used by voidyourwarranty branch, default 100
+		move-factor-y = <100>;	// used by voidyourwarranty branch, default 100
+		move-inertia-x = <1>;	// used by voidyourwarranty branch, default 0
+		move-inertia-y = <1>;	// used by voidyourwarranty branch, default 0
+		invert-move-x;          // Invert pointer X axis (left is right, and vice versa)
+		//invert-move-y;          // Invert pointer Y axis (up is down, and vice versa)
+		button = <0>;           // Send right-click when pressing the ball (default: 0 = left click, 1 = right click, 2 = middle click?)
+		swap-axes;              // Swap X and Y axes (horizontal is vertical, and vice versa)
+		//poll-interval = <50>;	//used by voidyourwarranty branch, default 50
+		//scroll-divisor = <1>;   // Increase wheel velocity (default: 2); used by cdc-mkb branch
+		scroll-divisor-x = <2>;	// Increase wheel velocity (default: 2); used by voidyourwarranty branch 
+		scroll-divisor-y = <2>;	// Increase wheel velocity (default: 2); used by voidyourwarranty branch 
+		invert-scroll-x;        // Invert wheel X axis (left is right, and vice versa)
+		invert-scroll-y;        // Invert wheel Y axis (up is down, and vice versa)
+		mode = <PIM447_MOVE>; // Act as mouse wheels at startup (default: PIM447_MOVE for a pointer)
+		//norm	= <1>;			// voidyourwarranty branch, not sure what does
+		//exactness = <4>;		// voidyourwarranty branch, not sure what does
+		//max-accel = <100>;	// voidyourwarranty branch, not sure what does
+		//power-layer = <0>;	// voidyourwarranty branch, makes track ball driver and 3V3 power output of the Nice!Nano (not sure about other MCU) depend on given layer
+	};
 };
