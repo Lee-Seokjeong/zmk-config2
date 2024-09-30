@@ -9,4 +9,10 @@ config ZMK_MOUSE
 config I2C
     default y
 
+config ZMK_TRACKBALL_PIM447
+    bool "Enable PIM447 Trackball"
+    default y
+    help
+        Enable support for the PIM447 trackball.
+
 endif
