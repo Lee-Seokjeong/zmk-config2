@@ -1,0 +1,6 @@
+if SHIELD_PIMTRACKBALL
+
+config ZMK_KEYBOARD_NAME
+    default "Pim Trackball"
+
+endif
