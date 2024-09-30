@@ -1,6 +1,12 @@
 if SHIELD_PIMTRACKBALL
 
 config ZMK_KEYBOARD_NAME
-    default "Pim Trackball"
+    default "Trackball_pim447"
+
+config ZMK_MOUSE
+    default y
+
+config I2C
+    default y
 
 endif
